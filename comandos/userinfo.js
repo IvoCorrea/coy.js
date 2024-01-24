@@ -21,6 +21,7 @@ module.exports = {
         .addFields(
             { name: 'Tag', value: user.tag, inline: true },
             { name: 'ID', value: user.id, inline: true },
+
         )
         .setThumbnail(user.displayAvatarURL({ dynamic: true }))
         .setTimestamp()
