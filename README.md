@@ -16,6 +16,7 @@
 
 ## Then you have to create a ".env" file with this information.
 
--- You can obtain these from the Discord Developer Portal.
--- TOKEN=00000
--- CLIENT_ID=00000
+- You can obtain these from the Discord Developer Portal.
+```bash
+TOKEN=00000
+CLIENT_ID=00000
