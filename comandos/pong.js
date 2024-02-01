@@ -7,7 +7,7 @@ module.exports = {
        
 
     async execute(client, interaction) {
-        //1084680981144948786
+       
         if (interaction.user.id == '1084680981144948786') {
             return await interaction.reply({content: `Oi, minha princesa`})
         } else {

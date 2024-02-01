@@ -30,7 +30,7 @@ module.exports = {
             .setColor('White')//0x0099FF
             .setTitle(`**${user.tag}**`)
             .addFields(
-                { name: '**Tag**', value: `${user.tag} \n *${user.id}*`, inline: true },
+                { name: '**Tag**', value: `${user.tag}`, inline: true },
                 { name: '**Entrou no servidor em**', value: `${joinedAt}`, inline: true },
                 { name: '**Data de criação**', value: `${createdAt}`, },
                 { name: '**É um bot?**', value: `${isbot}`, },
@@ -45,7 +45,9 @@ module.exports = {
 
             const cargosEmbed = new EmbedBuilder()
             .setColor('White')
-            .setDescription(`${userRoles}`);
+            .setTitle(`Cargos de ${user.tag}`)
+            .setDescription(`${userRoles}`)
+            .setThumbnail(user.displayAvatarURL({ dynamic: true }));
 
             const row = new ActionRowBuilder()
             .addComponents(roles);
