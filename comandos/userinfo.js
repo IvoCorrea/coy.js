@@ -19,7 +19,7 @@ module.exports = {
         let joinedAt
         if (interaction.guild != null) {
             member = await interaction.guild.members.fetch(user.id);
-            joinedAt = member.joinedAt.toLocaleDateString();
+            joinedAt = member.joinedAt.toLocaleDateString('pt-BR');
             userRoles = member.roles.cache.map(r => r).join(' ');
         } else {
             joinedAt = 'Dm'
@@ -56,7 +56,7 @@ module.exports = {
         .then(i => {
             const collector = i.createMessageComponentCollector({ componentType: ComponentType.Button, time: 25_000 });
 
-            collector.on('collect', i=> {
+            collector.on('collect', i => {
                 if (i.customId === 'cargos') i.reply({embeds:[cargosEmbed], ephemeral: true})
                 else i.reply({content: 'Erro.', ephemeral: true});
             })
