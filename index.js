@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { TOKEN, CLIENT_ID, GUILD_ID } = process.env;
+const { TOKEN, CLIENT_ID } = process.env;
 const fs = require('fs');
 const path = require('path');
 const {
@@ -16,7 +16,7 @@ client.on(Events.ClientReady, (client) => {
   client.commands = new Collection();
   let commands = [];
 
-  const commandsPath = path.join(__dirname, 'comandos');
+  const commandsPath = path.join(__dirname, 'commands');
   const commandFiles = fs
     .readdirSync(commandsPath)
     .filter((file) => file.endsWith('.js'));
@@ -37,7 +37,6 @@ client.on(Events.ClientReady, (client) => {
         `Started refreshing ${commands.length} application (/) commands.`
       );
 
-      // The put method is used to fully refresh all commands in the guild with the current set
       const data = await rest.put(Routes.applicationCommands(CLIENT_ID), {
         body: commands,
       });
@@ -46,7 +45,6 @@ client.on(Events.ClientReady, (client) => {
         `Successfully reloaded ${data.length} application (/) commands.`
       );
     } catch (error) {
-      // And of course, make sure you catch and log any errors!
       console.error(error);
     }
   })();
