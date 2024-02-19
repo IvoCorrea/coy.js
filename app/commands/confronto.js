@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
-const { estadios, climas } = require('../app/randomevents/random')
+const { estadios, climas, jogador } = require('../randomevents/random.js')
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('confronto')
@@ -24,17 +25,16 @@ module.exports = {
 
             if (timeQueFezOGol === 1) {
                 contadorA++
-                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `Matue marca para o time A` });
+                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `${jogador()} marca para o time de ${interaction.user}` });
             }
             else if (timeQueFezOGol === 0) {
                 contadorB++
-                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `Neymar marca para o time B` });
+                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `${jogador()} marca para o time de ${adversario}` });
             }
         };
 
         resultado.push({ name: `**FIM DO PRIMEIRO TEMPO!**`, value: `*Os times vão ao vestiario.*` });
         contador = 45;
-        //resultado.push({ name: `ROLA A BOLA NO ${estadio}`, value:'' });
 
         for (let i = 0; i < t2; i++) {
             contador = contador + Math.floor(Math.random() * 10);
@@ -42,11 +42,11 @@ module.exports = {
 
             if (timeQueFezOGol === 1) {
                 contadorA++;
-                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `Matue marca para o time A` });
+                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `${jogador()} marca para o time de ${interaction.user}` });
             }
             else if (timeQueFezOGol === 0) {
                 contadorB++;
-                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `Neymar marca para o time B` });
+                resultado.push({ name: `**${contador}' ⚽ GOOOOOOOOOLLL**`, value: `${jogador()} marca para o time de ${adversario}` });
             }
         };
         resultado.push({ name: `**90'**`, value: `O juiz apita, fim de jogo!`, });

@@ -16,7 +16,7 @@ client.on(Events.ClientReady, (client) => {
   client.commands = new Collection();
   let commands = [];
 
-  const commandsPath = path.join(__dirname, 'commands');
+  const commandsPath = path.join(__dirname, '/app/commands');
   const commandFiles = fs
     .readdirSync(commandsPath)
     .filter((file) => file.endsWith('.js'));
